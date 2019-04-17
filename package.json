@@ -1,0 +1,14 @@
+{
+  "name": "project-euler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "reverse-md5.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "reverse-md5": "0.0.4"
+  }
+}
