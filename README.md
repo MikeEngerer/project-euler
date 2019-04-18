@@ -8,6 +8,8 @@ npm i
 ```
 ### Usage
 
+Questions and hashed answers found in project_euler.txt. Diagrams found in project_euler folder. These files were obtained from [local euler](http://kmkeen.com/local-euler/2008-07-16-07-33-00.html).
+
 Included 'runtime' module evals func with args given and logs runtime + returned value to console
 ```
 const { runtime } = require('/path/to/root/runtime.js')
