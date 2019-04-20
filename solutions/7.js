@@ -38,7 +38,7 @@ const find10001 = () => {
   let primeArr = genPrimeArr(10001)
   return primeArr[primeArr.length - 1]
 }
-console.log('first')
+console.log('first solution')
 runtime(findPrime, 10001)
-console.log('second')
+console.log('second solution')
 runtime(find10001)
