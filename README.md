@@ -29,7 +29,7 @@ runtime(func, arguments)
 
 'isPrime' module contains two functions for handling primes.
 
-These are not too efficient (especially isPrime()); will improve when problems become too computationally intense.
+These are not too efficient; will improve as problems become more computationally intense.
 ```
 const { isPrime, genPrimeArr } = require('/path/to/root/isPrime.js')
 
