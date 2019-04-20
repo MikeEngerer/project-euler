@@ -34,7 +34,7 @@ These are not too efficient (especially isPrime()); will improve when problems b
 const { isPrime, genPrimeArr } = require('/path/to/root/isPrime.js')
 
 isPrime(num) // bool
-genPrimeArr(numPrimes) // array of primes of length numPrimes
+genPrimeArr(numPrimes) // array of primes of length numPrimes - 1
 ```
 
 'reverse-md5' module utilizes the npm package (same name) as a means to compare the provided answers to your own.
