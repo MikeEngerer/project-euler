@@ -27,13 +27,14 @@ const func = (arguments) => value
 runtime(func, arguments)
 ```
 
-'isPrime' module checks if a given num is prime, returning bool.
+'isPrime' module contains two functions for handling primes.
 
-This is a very novice approach; will improve when problems become too computationally intense.
+These are not too efficient (especially isPrime()); will improve when problems become too computationally intense.
 ```
-const { isPrime } = require('/path/to/root/isPrime.js')
+const { isPrime, genPrimeArr } = require('/path/to/root/isPrime.js')
 
-isPrime(num)
+isPrime(num) // bool
+genPrimeArr(numPrimes) // array of primes of length numPrimes
 ```
 
 'reverse-md5' module utilizes the npm package (same name) as a means to compare the provided answers to your own.
