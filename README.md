@@ -1,4 +1,4 @@
-## Project-Euler Solutions + helper modules
+## Project-Euler solutions + helper modules
 
 ### About
 
