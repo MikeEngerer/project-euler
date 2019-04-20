@@ -38,9 +38,9 @@ genPrimeArr(numPrimes) // array of primes of length numPrimes - 1
 ```
 
 'reverse-md5' module utilizes the npm package (same name) as a means to compare the provided answers to your own.
-Project euler's method is to produce an md5sum and compare; this is much quicker and easier.
+Project euler's method is to produce an md5sum and compare; this is much quicker and easier, so don't use this (lol).
 ```
 const { reversed } = require('/path/to/root/reverse-md5.js')
 
-reversed(md5-string)
+reversed(md5-hash)
 ```
