@@ -1,16 +1,24 @@
 ## Project-euler Solutions + helper modules
+
+### About
+
+My ongoing collection of JS solutions to the [Project-euler](https://projecteuler.net/) problem set. 
+
+Questions and hashed answers found in project_euler.txt. Diagrams found in project_euler folder. These files were obtained from [local euler](http://kmkeen.com/local-euler/2008-07-16-07-33-00.html).
+
+This is a WIP, many solutions are far from optimal/efficient. Refactoring as I go!
+
 ### Setup
 
-clone & install packages
+To obtain the problem set/modules/solutions locally:
+
 ```
 git clone <this repo> <your repo>
 npm i
 ```
 ### Usage
 
-Questions and hashed answers found in project_euler.txt. Diagrams found in project_euler folder. These files were obtained from [local euler](http://kmkeen.com/local-euler/2008-07-16-07-33-00.html).
-
-Included 'runtime' module evals func with args given and logs runtime + returned value to console
+'runtime' module evals func with args given and logs runtime + returned value.
 ```
 const { runtime } = require('/path/to/root/runtime.js')
 
@@ -18,16 +26,20 @@ const func = (arguments) => value
 
 runtime(func, arguments)
 ```
+
+'isPrime' module checks if a given num is prime, returning bool.
+
+This is a very novice approach; will improve when problems become too computationally intense.
+```
+const { isPrime } = require('/path/to/root/isPrime.js')
+
+isPrime(num)
+```
+
 'reverse-md5' module utilizes the npm package (same name) as a means to compare the provided answers to your own.
 Project euler's method is to produce an md5sum and compare; this is much quicker and easier.
 ```
 const { reversed } = require('/path/to/root/reverse-md5.js')
 
-/// your code here
-
 reversed(md5-string)
 ```
-
-### Notes
-
-This is a WIP, will continue to update with more solutions/modules. Many solutions are far from optimal/efficient. Refactoring as I go!
