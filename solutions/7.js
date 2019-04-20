@@ -1,4 +1,5 @@
 const { runtime } = require('../runtime.js')
+const { genPrimeArr } = require('../isPrime.js')
 
 const findPrime = (num) => {
   let primeArr = [1, 2, 3, 5, 7, 11, 13]
@@ -30,4 +31,14 @@ const isPrime = (num) => {
   return true
 }
 
+// new sol using genPrimeArr 
+// runtime decreased from 1.5s to 0.16s
+
+const find10001 = () => {
+  let primeArr = genPrimeArr(10001)
+  return primeArr[primeArr.length - 1]
+}
+console.log('first')
 runtime(findPrime, 10001)
+console.log('second')
+runtime(find10001)
