@@ -1,15 +1,5 @@
 const { runtime } = require('../runtime.js')
-
-const findFactorCount = (num) => {
-  let count = 2
-  let min = Math.ceil(Math.sqrt(num / 2))
-  for (let i = 2; i <= min + 1; i++) {
-    if (num % i === 0) {
-      count += 2
-    }
-  }
-  return count
-}
+const { findFactorCount } = require('../factors.js')
 
 const findTriangleNumFactors = (numFactors) => {
   let found = false
