@@ -17,6 +17,7 @@ const splitHand = (fullHand) => {
   const p2 = fullHand.slice(4, 9)
   return [p1, p2]
 }
+
 // returns given or converted num from individual card str
 const getCardNum = (card) => {
   const cardMap = {
@@ -29,8 +30,10 @@ const getCardNum = (card) => {
   const num = cardMap[card[0]]
   return num ? num : Number(card[0])
 }
+
 // returns card suit from individual card str
 const getCardSuit = (card) => card[1]
+
 // returns obj containing frequency of nums in hand
 const sortDuplicateNums = (hand) => {
   const numNums = {
@@ -51,6 +54,7 @@ const sortDuplicateNums = (hand) => {
   hand.map(e => getCardNum(e)).forEach(num => numNums[num]++)
   return numNums
 }
+
 // returns obj containing frequency of suits in hand
 const sortSuits = (hand) => {
   const numSuit = {
@@ -62,8 +66,15 @@ const sortSuits = (hand) => {
   hand.map(e => getCardSuit(e)).forEach(suit => numSuit[suit]++)
   return numSuit
 }
+
+// returns arr of sorted card nums
+const sortHandByNums = (hand) => {
+  return hand.map(e => getCardNum(e)).sort((a, b) => a - b)
+}
+
 // returns highest card num in players hand
-const getHighCard = (hand) => hand.map(e => getCardNum(e)).sort((a, b) => a - b).last()
+const getHighCard = (hand) => sortHandByNums(hand).last()
+
 // checks for suit freq === 5, returns bool
 const hasFlush = (hand) => {
   const suitFrequency = sortSuits(hand)
@@ -75,9 +86,10 @@ const hasFlush = (hand) => {
   }
   return flush
 }
+
 // checks sorted hand for 5 nums in sequence, returns bool
 const hasStraight = (hand) => {
-  const sortedHand = hand.map(e => getCardNum(e)).sort((a, b) => a - b)
+  const sortedHand = sortHandByNums(hand)
   let straight = true
   for (let i = sortedHand.length - 1; i >= 0; i--) {
     if (i === 0) {
@@ -90,8 +102,9 @@ const hasStraight = (hand) => {
   }
   return straight
 }
+
 // checks num frequency for pair, twoPair, trip, four of a kind, full house, returns value to be handled by ranking func
-const highestDuplicateSet = (hand) => {
+const largestDuplicateSet = (hand) => {
   const numFrequency = sortDuplicateNums(hand)
   let pair = false
   let twoPair = false
@@ -99,6 +112,7 @@ const highestDuplicateSet = (hand) => {
   let quad = false
   for (num in numFrequency) {
     if (numFrequency[num] === 2) {
+      // if already pair, has two pair
       pair === true ? twoPair = true : pair = true
     } else if (numFrequency[num] === 3) {
       trip = true
@@ -106,23 +120,26 @@ const highestDuplicateSet = (hand) => {
       quad = true
     }
   }
-
+  // return best
   return (
     pair && trip ? 'full house' :  
     quad ? 'four of a kind' : 
     trip ? 'three of a kind' : 
     twoPair ? 'two pair' : 
     pair ? 'pair' : false 
-    )
+  )
 }
 
-const hasRoyalFlush = (hand) => {
+// checks for straight flush, returns bool
+const hasStraightFlush = (hand) => hasFlush(hand) && hasStraight(hand) ? true : false
 
-}
+// checks for royal flush, returns bool
+const hasRoyalFlush = (hand) => hasStraightFlush(hand) && getHighCard(hand) === 14 ? true : false 
 
-// console.log(highestDuplicateSet(data[19].slice(0, 5)), data[19].slice(0, 5))
-data.forEach((e, i) => {
-  console.log(highestDuplicateSet(e.slice(0, 5)), i)
-})
+// data.forEach((e, i) => {
+//   console.log(e.slice(0, 5), i)
+// })
 
-console.log(data[870].slice(0, 5))
+// console.log(hasRoyalFlush(['TH', 'JH', 'QH', 'KH', 'AH']))
+// console.log(data[870].slice(0, 5))
+// console.log(largestDuplicateSet(['6D', '6D', '5C', '5H', '5S']))
