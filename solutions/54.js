@@ -136,10 +136,27 @@ const hasStraightFlush = (hand) => hasFlush(hand) && hasStraight(hand) ? true : 
 // checks for royal flush, returns bool
 const hasRoyalFlush = (hand) => hasStraightFlush(hand) && getHighCard(hand) === 14 ? true : false 
 
-// data.forEach((e, i) => {
-//   console.log(e.slice(0, 5), i)
-// })
+// compares given highest hands, returns num representing outcome for further processing
+const evalWinner = (p1, p2) => {
+  const pointMap = {
+    'high card': 1,
+    'pair': 2,
+    'two pair': 3,
+    'three of a kind': 4,
+    'straight': 5,
+    'flush': 6,
+    'full house': 7,
+    'four of a kind': 8,
+    'straight flush': 9,
+    'royal flush': 10
+  }
+  const p1Score = pointMap[p1]
+  const p2Score = pointMap[p2]
+  // returned num indicates tie (will be evaled closer) or winner
+  return  p1Score === p2Score ? 0 : p1Score > p2Score ? 1 : 2
+}
 
+// console.log(evalWinner('full house', 'full house'))
 // console.log(hasRoyalFlush(['TH', 'JH', 'QH', 'KH', 'AH']))
 // console.log(data[870].slice(0, 5))
 // console.log(largestDuplicateSet(['6D', '6D', '5C', '5H', '5S']))
