@@ -31,10 +31,6 @@ const getCardNum = (card) => {
 }
 // returns card suit from individual card str
 const getCardSuit = (card) => card[1]
-
-// returns highest card num in players hand
-const getHighCard = (hand) => hand.map(e => getCardNum(e)).sort((a, b) => a - b).last()
-
 // returns obj containing frequency of nums in hand
 const sortDuplicateNums = (hand) => {
   const numNums = {
@@ -55,7 +51,6 @@ const sortDuplicateNums = (hand) => {
   hand.map(e => getCardNum(e)).forEach(num => numNums[num]++)
   return numNums
 }
-
 // returns obj containing frequency of suits in hand
 const sortSuits = (hand) => {
   const numSuit = {
@@ -67,5 +62,67 @@ const sortSuits = (hand) => {
   hand.map(e => getCardSuit(e)).forEach(suit => numSuit[suit]++)
   return numSuit
 }
+// returns highest card num in players hand
+const getHighCard = (hand) => hand.map(e => getCardNum(e)).sort((a, b) => a - b).last()
+// checks for suit freq === 5, returns bool
+const hasFlush = (hand) => {
+  const suitFrequency = sortSuits(hand)
+  let flush = false
+  for (suit in suitFrequency) {
+    if (suitFrequency[suit] === 5) {
+      flush = true
+    }
+  }
+  return flush
+}
+// checks sorted hand for 5 nums in sequence, returns bool
+const hasStraight = (hand) => {
+  const sortedHand = hand.map(e => getCardNum(e)).sort((a, b) => a - b)
+  let straight = true
+  for (let i = sortedHand.length - 1; i >= 0; i--) {
+    if (i === 0) {
+      break
+    }
+    if (sortedHand[i] !== sortedHand[i - 1] + 1) {
+      straight = false
+      break
+    }
+  }
+  return straight
+}
+// checks num frequency for pair, twoPair, trip, four of a kind, full house, returns value to be handled by ranking func
+const highestDuplicateSet = (hand) => {
+  const numFrequency = sortDuplicateNums(hand)
+  let pair = false
+  let twoPair = false
+  let trip = false
+  let quad = false
+  for (num in numFrequency) {
+    if (numFrequency[num] === 2) {
+      pair === true ? twoPair = true : pair = true
+    } else if (numFrequency[num] === 3) {
+      trip = true
+    } else if (numFrequency[num] === 4) {
+      quad = true
+    }
+  }
 
+  return (
+    pair && trip ? 'full house' :  
+    quad ? 'four of a kind' : 
+    trip ? 'three of a kind' : 
+    twoPair ? 'two pair' : 
+    pair ? 'pair' : false 
+    )
+}
 
+const hasRoyalFlush = (hand) => {
+
+}
+
+// console.log(highestDuplicateSet(data[19].slice(0, 5)), data[19].slice(0, 5))
+data.forEach((e, i) => {
+  console.log(highestDuplicateSet(e.slice(0, 5)), i)
+})
+
+console.log(data[870].slice(0, 5))
