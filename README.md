@@ -1,8 +1,8 @@
-## Project-euler Solutions + helper modules
+## Project-Euler solutions + helper modules
 
 ### About
 
-My ongoing collection of JS solutions to the [Project-euler](https://projecteuler.net/) problem set. 
+My ongoing collection of JS solutions to the [Project-Euler](https://projecteuler.net/) problem set. 
 
 Questions and hashed answers found in project_euler.txt. Diagrams found in project_euler folder. These files were obtained from [local euler](http://kmkeen.com/local-euler/2008-07-16-07-33-00.html).
 
