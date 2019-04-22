@@ -30,14 +30,10 @@ const getCardNum = (card) => {
   return num ? num : Number(card[0])
 }
 // returns card suit from individual card str
-const getCardSuit = (card) => {
-  return card[1]
-}
+const getCardSuit = (card) => card[1]
 
 // returns highest card num in players hand
-const getHighCard = (hand) => {
-  return hand.map(e => getCardNum(e)).sort((a, b) => a - b).last()
-}
+const getHighCard = (hand) => hand.map(e => getCardNum(e)).sort((a, b) => a - b).last()
 
 const hasPair = (hand) => {
   hand = hand.map(e => getCardNum(e))
