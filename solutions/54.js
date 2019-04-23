@@ -14,7 +14,7 @@ Array.prototype.last = function() {
 // split players hands from [p1, p2] to [[p1], [p2]]
 const splitHand = (fullHand) => {
   const p1 = fullHand.slice(0, 5)
-  const p2 = fullHand.slice(4, 9)
+  const p2 = fullHand.slice(5)
   return [p1, p2]
 }
 
@@ -152,7 +152,7 @@ const evalWinner = (p1, p2) => {
   }
   const p1Score = pointMap[p1], p2Score = pointMap[p2]
   // returned num indicates tie (will be evaled closer) or winner
-  return  p1Score === p2Score ? 0 : p1Score > p2Score ? 1 : 2
+  return  p1Score === p2Score ? `${p1Score}` : p1Score > p2Score ? 1 : 2
 }
 
 // uses above funcs to determine highest hand and returns str for mapping to pts by evalWinner()
@@ -175,6 +175,7 @@ const findHighestHand = (hand) => {
   return highest
 }
 
+
 const splitTie = (p1, p2, type) => {
   let winner;
   const p1Sorted = sortDuplicateNums(p1), p2Sorted = sortDuplicateNums(p2)
@@ -186,12 +187,12 @@ const splitTie = (p1, p2, type) => {
       let p1PairNum, p2PairNum
       for (num in p1Sorted) {
         if (p1Sorted[num] === 2) {
-          p1PairNum = num
+          p1PairNum = Number(num)
         }
       }
       for (num in p2Sorted) {
         if (p2Sorted[num] === 2) {
-          p2PairNum = num
+          p2PairNum = Number(num)
         }
       }
       // if still tied, compare high card
@@ -201,12 +202,12 @@ const splitTie = (p1, p2, type) => {
       let p1FirstPair, p1SecondPair, p2FirstPair, p2SecondPair
       for (num in p1Sorted) {
         if (p1Sorted[num] === 2) {
-          p1FirstPair = num
+          p1FirstPair = Number(num)
         }
       }
       for (num in p2Sorted) {
         if (p2Sorted[num] === 2) {
-          p2FirstPair = num
+          p2FirstPair = Number(num)
         }
       }
       if (p1FirstPair !== p2FirstPair) {
@@ -215,13 +216,13 @@ const splitTie = (p1, p2, type) => {
       } else {
         for (num in p1Sorted) {
           if (p1Sorted[num] === 2) {
-            p1SecondPair = num
+            p1SecondPair = Number(num)
             break
           }
         }
         for (num in p2Sorted) {
             if (p2Sorted[num] === 2) {
-              p2SecondPair = num
+              p2SecondPair = Number(num)
               break
             }
           }
@@ -233,12 +234,12 @@ const splitTie = (p1, p2, type) => {
       let p1TripNum, p2TripNum
       for (num in p1Sorted) {
         if (p1Sorted[num] === 3) {
-          p1TripNum = num
+          p1TripNum = Number(num)
         }
       }
       for (num in p2Sorted) {
         if (p2Sorted[num] === 3) {
-          p2TripNum = num
+          p2TripNum = Number(num)
         }
       }
       winner = p1TripNum === p2TripNum ? splitTie(p1, p2, 1) : p1TripNum > p2TripNum ? 1 : 2
@@ -255,12 +256,12 @@ const splitTie = (p1, p2, type) => {
       let p1FullTrip, p2FullTrip
       for (num in p1Sorted) {
         if (p1Sorted[num] === 3) {
-          p1FullTrip = num
+          p1FullTrip = Number(num)
         }
       }
       for (num in p2Sorted) {
         if (p2Sorted[num] === 3) {
-          p2FullTrip = num
+          p2FullTrip = Number(num)
         }
       }
       // if tie on full house trip, delegate winner determination to case 2 (pair tie, type = 2)
@@ -270,12 +271,12 @@ const splitTie = (p1, p2, type) => {
         let p1FourNum, p2FourNum
         for (num in p1Sorted) {
           if (p1Sorted[num] === 4) {
-            p1FourNum = num
+            p1FourNum = Number(num)
           }
         }
         for (num in p2Sorted) {
           if (p2Sorted[num] === 4) {
-            p2FourNum = num
+            p2FourNum = Number(num)
           }
         }
         winner = p1FourNum === p2FourNum ? splitTie(p1, p2, 1) : p1FourNum > p2FourNum ? 1 : 2
@@ -290,9 +291,27 @@ const splitTie = (p1, p2, type) => {
   return winner
 }
 
+const loopData = (data) => {
+  let splitHands = data.map(e => splitHand(e))
+  let p1Wins = 0, p2Wins = 0, p1Hand, p2Hand, p1Highest, p2Highest, winner
+  for (let i = 0; i < data.length; i++) {
+    splitHands[i].forEach((hand, index) => {
+      // workaround to bad planning, i === 0 is p1, i === 1 is p2
+      if (index === 0) {
+        p1Hand = hand
+        p1Highest = findHighestHand(hand)
+      } else {
+        p2Hand = hand
+        p2Highest = findHighestHand(hand)
+      }
+    })
+    winner = evalWinner(p1Highest, p2Highest)
+    if (typeof winner === 'string') {
+      winner = splitTie(p1Hand, p2Hand, Number(winner)) 
+    }
+    winner === 1 ? p1Wins++ : p2Wins++
+  }
+  return p1Wins
+}
 
-// console.log(evalWinner(findHighestHand(data[3].slice(0, 5)), findHighestHand(data[3].slice(5))), data[3])
-// console.log(evalWinner('full house', 'full house'))
-// console.log(hasRoyalFlush(['TH', 'JH', 'QH', 'KH', 'AH']))
-// console.log(data[870].slice(0, 5))
-// console.log(largestDuplicateSet(['6D', '6D', '5C', '5H', '5S']))
+runtime(loopData, data)
