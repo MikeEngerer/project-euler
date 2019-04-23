@@ -150,12 +150,148 @@ const evalWinner = (p1, p2) => {
     'straight flush': 9,
     'royal flush': 10
   }
-  const p1Score = pointMap[p1]
-  const p2Score = pointMap[p2]
+  const p1Score = pointMap[p1], p2Score = pointMap[p2]
   // returned num indicates tie (will be evaled closer) or winner
   return  p1Score === p2Score ? 0 : p1Score > p2Score ? 1 : 2
 }
 
+// uses above funcs to determine highest hand and returns str for mapping to pts by evalWinner()
+const findHighestHand = (hand) => {
+  let highest;
+  if (hasRoyalFlush(hand)) {
+    highest = 'royal flush'
+  } else if (hasStraightFlush(hand)) {
+    highest = 'straight flush'
+  } else if (hasFlush(hand)) {
+    highest = 'flush'
+  } else if (hasStraight(hand)) {
+    highest = 'straight'
+  } else if (largestDuplicateSet(hand)) {
+    // already returns str (or false if no dups)
+    highest = largestDuplicateSet(hand)
+  } else {
+    highest = 'high card'
+  }
+  return highest
+}
+
+const splitTie = (p1, p2, type) => {
+  let winner;
+  const p1Sorted = sortDuplicateNums(p1), p2Sorted = sortDuplicateNums(p2)
+  switch (type) {
+    case 1:
+      winner = getHighCard(p1) > getHighCard(p2) ? 1 : 2
+      break
+    case 2: 
+      let p1PairNum, p2PairNum
+      for (num in p1Sorted) {
+        if (p1Sorted[num] === 2) {
+          p1PairNum = num
+        }
+      }
+      for (num in p2Sorted) {
+        if (p2Sorted[num] === 2) {
+          p2PairNum = num
+        }
+      }
+      // if still tied, compare high card
+      winner = p1PairNum === p2PairNum ? splitTie(p1, p2, 1) : p1PairNum > p2PairNum ? 1 : 2
+      break
+    case 3:
+      let p1FirstPair, p1SecondPair, p2FirstPair, p2SecondPair
+      for (num in p1Sorted) {
+        if (p1Sorted[num] === 2) {
+          p1FirstPair = num
+        }
+      }
+      for (num in p2Sorted) {
+        if (p2Sorted[num] === 2) {
+          p2FirstPair = num
+        }
+      }
+      if (p1FirstPair !== p2FirstPair) {
+        // if still tied, compare second pair
+        winner = p1FirstPair > p2FirstPair ? 1 : 2
+      } else {
+        for (num in p1Sorted) {
+          if (p1Sorted[num] === 2) {
+            p1SecondPair = num
+            break
+          }
+        }
+        for (num in p2Sorted) {
+            if (p2Sorted[num] === 2) {
+              p2SecondPair = num
+              break
+            }
+          }
+        // if still tied, compare high card
+        winner = p1SecondPair === p2SecondPair ? splitTie(p1, p2, 1) : p1SecondPair > p2SecondPair ? 1 : 2
+        break
+      }
+    case 4: 
+      let p1TripNum, p2TripNum
+      for (num in p1Sorted) {
+        if (p1Sorted[num] === 3) {
+          p1TripNum = num
+        }
+      }
+      for (num in p2Sorted) {
+        if (p2Sorted[num] === 3) {
+          p2TripNum = num
+        }
+      }
+      winner = p1TripNum === p2TripNum ? splitTie(p1, p2, 1) : p1TripNum > p2TripNum ? 1 : 2
+      break
+    case 5:
+      // cannot have equal straights, only need to compare high card (type = 1)
+      winner = splitTie(p1, p2, 1)
+      break
+    case 6: 
+      // same logic as case 5
+      winner = splitTie(p1, p2, 1)
+      break
+    case 7:
+      let p1FullTrip, p2FullTrip
+      for (num in p1Sorted) {
+        if (p1Sorted[num] === 3) {
+          p1FullTrip = num
+        }
+      }
+      for (num in p2Sorted) {
+        if (p2Sorted[num] === 3) {
+          p2FullTrip = num
+        }
+      }
+      // if tie on full house trip, delegate winner determination to case 2 (pair tie, type = 2)
+      winner = p1FullTrip === p2FullTrip ? splitTie(p1, p2, 2) : p1FullTrip > p2FullTrip ? 1 : 2
+      break
+      case 8:
+        let p1FourNum, p2FourNum
+        for (num in p1Sorted) {
+          if (p1Sorted[num] === 4) {
+            p1FourNum = num
+          }
+        }
+        for (num in p2Sorted) {
+          if (p2Sorted[num] === 4) {
+            p2FourNum = num
+          }
+        }
+        winner = p1FourNum === p2FourNum ? splitTie(p1, p2, 1) : p1FourNum > p2FourNum ? 1 : 2
+        break
+      case 9:
+        // same logic as case 5, 6
+        winner = splitTie(p1, p2, 1)
+        break
+      // no case 10 (royal flush): cannot happen 
+  }
+  // int 1 or 2 returned denoting p1, p2, respectively
+  return winner
+}
+
+
+// console.log(evalWinner(findHighestHand(data[3].slice(0, 5)), findHighestHand(data[3].slice(5))), data[3])
 // console.log(evalWinner('full house', 'full house'))
 // console.log(hasRoyalFlush(['TH', 'JH', 'QH', 'KH', 'AH']))
 // console.log(data[870].slice(0, 5))
