@@ -13,8 +13,7 @@ Array.prototype.last = function() {
 
 // split players hands from [p1, p2] to [[p1], [p2]]
 const splitHand = (fullHand) => {
-  const p1 = fullHand.slice(0, 5)
-  const p2 = fullHand.slice(5)
+  const p1 = fullHand.slice(0, 5), p2 = fullHand.slice(5)
   return [p1, p2]
 }
 
@@ -68,9 +67,7 @@ const sortSuits = (hand) => {
 }
 
 // returns arr of sorted card nums
-const sortHandByNums = (hand) => {
-  return hand.map(e => getCardNum(e)).sort((a, b) => a - b)
-}
+const sortHandByNums = (hand) => hand.map(e => getCardNum(e)).sort((a, b) => a - b)
 
 // returns highest card num in players hand
 const getHighCard = (hand) => sortHandByNums(hand).last()
@@ -90,12 +87,13 @@ const hasFlush = (hand) => {
 // checks sorted hand for 5 nums in sequence, returns bool
 const hasStraight = (hand) => {
   const sortedHand = sortHandByNums(hand)
+  console.log(sortedHand)
   let straight = true
   for (let i = sortedHand.length - 1; i >= 0; i--) {
     if (i === 0) {
       break
     }
-    if (sortedHand[i] !== sortedHand[i - 1] + 1) {
+    if (sortedHand[i] - 1 !== sortedHand[i - 1]) {
       straight = false
       break
     }
