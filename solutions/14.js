@@ -17,7 +17,7 @@ const applyFormula = (num) => num % 2 === 0 ? num / 2 : (3 * num) + 1
 
 const findLargestTermCount = (maxNum) => {
   // keep track of winning num, its term count, and the current nums term count
-  let highNum = 0, highCount = 0, currentCount
+  let highNum = 0, highCount = 0, currentCount;
   for (let i = 2; i < maxNum; i++) {
     currentCount = countTerms(i)
     if (currentCount > highCount) {
