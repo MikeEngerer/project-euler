@@ -48,7 +48,7 @@ findFactorCount(num) // factor count
 const { genGrid } = require('/path/to/root/grid')
 
 genGrid(rows, cols, val)
-genGrid(3, 4, 0) // [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+genGrid(3, 4, 0) // [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 ```
 
 'reverse-md5' module utilizes the npm package (same name) as a means to compare the provided answers to your own.
