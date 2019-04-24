@@ -43,7 +43,13 @@ const { findFactors, findFactorCount } = require('/path/to/root/factors')
 findFactors(num) // unsorted array of factors
 findFactorCount(num) // factor count
 ```
+'grid' module contains functions for creating grids (2d arr)
+```
+const { genGrid } = require('/path/to/root/grid')
 
+genGrid(rows, cols, val)
+genGrid(3, 4, 0) // [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+```
 
 'reverse-md5' module utilizes the npm package (same name) as a means to compare the provided answers to your own.
 Project euler's method is to produce an md5sum and compare; this is much quicker and easier, so don't use this (lol).
