@@ -19,25 +19,32 @@ let data = `                          75
 // format data into 2d arr
 data = data.split('\n').map(e => e.trim()).map(e => e.split(' ').map(el => Number(el)))
 
-// map rank of nums in each row (sorted index)
-const mapRanks = (arr) => {
-  let x = arr.slice().sort((a, b) => a - b)
-  return arr.map(e => x.indexOf(e))
+// starts at second last row, each el += larger of its two route options below: sum persists
+const findMax = (data) => {
+  let current, left, right
+  for (let i = data.length - 1; i > 0; i--) {
+    for (let j = 0; j < data[i - 1].length; j++) {
+      current = data[i - 1][j]
+      left = data[i][j]
+      right = data[i][j + 1]
+      left > right ? current += left : current += right
+      data[i - 1][j] = current
+    }
+  }
+  // starting num is now max route summed
+  return data[0][0]
 }
 
-// full data set mapped by rank
-let rankedData = data.map(e => mapRanks(e))
+runtime(findMax, data)
 
-console.log(rankedData)
-
-// const findRoute = (data) => {
-//   let route = [data[0][0]]
-//   // outer arr 
-//   for (let i = 0; i < data.length - 1; i++) {
-//     // inner arrs
-//     route.push(data[i + 1][i] > data[i + 1][i + 1] ? data[i + 1][i] : data[i + 1][i + 1])s
-//   }
-//   return route.reduce((a, e) => a + e)
+// initial approach below with rankings didnt pan out
+// // map rank of nums in each row (sorted index)
+// const mapRanks = (arr) => {
+//   let sorted = arr.slice().sort((a, b) => a - b)
+//   return arr.map(e => sorted.indexOf(e))
 // }
 
-// console.log(findRoute(data))
+// // full data set mapped by rank
+// let rankedData = data.map(e => mapRanks(e))
+
+// console.log(rankedData)
