@@ -51,6 +51,14 @@ genGrid(rows, cols, val)
 genGrid(3, 4, 0) // [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 ```
 
+'alphabet' module contains functions for generating arrays/objects of characters
+```
+const { genAlphaArr, genAlphaObj } = require('/path/to/root/grid')
+
+genAlphaArr('A', 'Z') // ['A', 'B', ... ,'Z']
+genAlphaObj('a', 'z') // { 'a': 1, 'b': 2, ..., 'z': 26}
+```
+
 'reverse-md5' module utilizes the npm package (same name) as a means to compare the provided answers to your own.
 Project euler's method is to produce an md5sum and compare; this is much quicker and easier, so don't use this (lol).
 ```
