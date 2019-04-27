@@ -53,7 +53,7 @@ genGrid(3, 4, 0) // [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
 'alphabet' module contains functions for generating arrays/objects of characters
 ```
-const { genAlphaArr, genAlphaObj } = require('/path/to/root/grid')
+const { genAlphaArr, genAlphaObj } = require('/path/to/root/alphabet')
 
 genAlphaArr('A', 'Z') // ['A', 'B', ... ,'Z']
 genAlphaObj('a', 'z') // { 'a': 1, 'b': 2, ..., 'z': 26}
