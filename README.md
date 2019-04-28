@@ -26,6 +26,14 @@ const func = (arguments) => value
 
 runtime(func, arguments)
 ```
+'fibonacci' module contains funcs for working with the fibonacci sequence.
+```
+const { fibNthTerm, isFib } = require('/path/to/root/fibonacci')
+
+fibNthTerm(10) // 55
+isFib(55) // true
+isFib(4) // false
+```
 
 'isPrime' module contains two functions for handling primes.
 
