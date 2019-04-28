@@ -67,8 +67,7 @@ genAlphaArr('A', 'Z') // ['A', 'B', ... ,'Z']
 genAlphaObj('a', 'z') // { 'a': 1, 'b': 2, ..., 'z': 26}
 ```
 
-'reverse-md5' module utilizes the npm package (same name) as a means to compare the provided answers to your own.
-Project euler's method is to produce an md5sum and compare; this is much quicker and easier, so don't use this (lol).
+'reverse-md5' module utilizes the npm package (same name). Use to obtain answers from project_euler.txt if you're stuck.
 ```
 const { reversed } = require('/path/to/root/reverse-md5')
 
