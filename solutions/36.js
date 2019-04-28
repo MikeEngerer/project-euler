@@ -7,12 +7,12 @@ const convertNumToBin = (num) => (num).toString(2)
 const convertNumToStr = (num) => (num).toString()
 
 const findPalindromes = (max) => {
-  let nums = [], count = 0, strNum, binNum
-  while (count <= max) {
-    binNum = convertNumToBin(count)
-    strNum = convertNumToStr(count)
-    if (isPalindrome(binNum) && isPalindrome(strNum)) nums.push(count)
-    count++
+  let nums = [], currentNum = 0, strNum, binNum
+  while (currentNum <= max) {
+    binNum = convertNumToBin(currentNum)
+    strNum = convertNumToStr(currentNum)
+    if (isPalindrome(binNum) && isPalindrome(strNum)) nums.push(currentNum)
+    currentNum++
   }
   return nums.reduce((a, e) => a + e, 0)
 }
