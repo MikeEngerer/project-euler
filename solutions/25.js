@@ -1,6 +1,7 @@
 const { runtime } = require('../runtime')
 
-const fib = (last, secondLast, count = 2) => {
+// recursive solution using digit arrs (nums too big for JS)
+const fib = (last = [1], secondLast = [1], count = 2) => {
   if (last.length === 1000) return count
   let lastCopy = last.slice(), over = 0
   for (let i = 0; i < last.length; i++) {
@@ -17,7 +18,7 @@ const fib = (last, secondLast, count = 2) => {
   return fib(last, lastCopy, count)
 }
 
-runtime(fib, [1], [1])
+runtime(fib)
 
 
 //// previous attempt that didnt work out... arr of digits in reverse made the above solution much easier
