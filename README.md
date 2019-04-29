@@ -20,7 +20,7 @@ npm i
 
 'runtime' module evals func with args given and logs runtime + returned value.
 ```
-const { runtime } = require('/path/to/root/runtime')
+const { runtime } = require('/path/to/runtime')
 
 const func = (arguments) => value
 
@@ -28,7 +28,7 @@ runtime(func, arguments)
 ```
 'fibonacci' module contains funcs for working with the fibonacci sequence.
 ```
-const { fibNthTerm, isFib } = require('/path/to/root/fibonacci')
+const { fibNthTerm, isFib } = require('/path/to/fibonacci')
 
 fibNthTerm(10) // 55
 isFib(55) // true
@@ -39,21 +39,21 @@ isFib(4) // false
 
 These are not too efficient; will improve as problems become more computationally intense.
 ```
-const { isPrime, genPrimeArr } = require('/path/to/root/isPrime')
+const { isPrime, genPrimeArr } = require('/path/to/isPrime')
 
 isPrime(num) // bool
 genPrimeArr(numPrimes) // array of primes of length numPrimes - 1
 ```
 'factors' module contains two functions for finding factors.
 ```
-const { findFactors, findFactorCount } = require('/path/to/root/factors')
+const { findFactors, findFactorCount } = require('/path/to/factors')
 
 findFactors(num) // unsorted array of factors
 findFactorCount(num) // factor count
 ```
 'grid' module contains functions for creating grids (2d arr)
 ```
-const { genGrid } = require('/path/to/root/grid')
+const { genGrid } = require('/path/to/grid')
 
 genGrid(rows, cols, val)
 genGrid(3, 4, 0) // [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
@@ -61,7 +61,7 @@ genGrid(3, 4, 0) // [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
 'alphabet' module contains functions for generating arrays/objects of characters
 ```
-const { genAlphaArr, genAlphaObj } = require('/path/to/root/alphabet')
+const { genAlphaArr, genAlphaObj } = require('/path/to/alphabet')
 
 genAlphaArr('A', 'Z') // ['A', 'B', ... ,'Z']
 genAlphaObj('a', 'z') // { 'a': 1, 'b': 2, ..., 'z': 26}
@@ -69,7 +69,7 @@ genAlphaObj('a', 'z') // { 'a': 1, 'b': 2, ..., 'z': 26}
 
 'reverse-md5' module utilizes the npm package (same name). Use to obtain answers from project_euler.txt if you're stuck.
 ```
-const { reversed } = require('/path/to/root/reverse-md5')
+const { reversed } = require('/path/to/reverse-md5')
 
 reversed(md5-hash)
 ```
