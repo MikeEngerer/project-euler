@@ -35,11 +35,11 @@ isFib(55) // true
 isFib(4) // false
 ```
 
-'isPrime' module contains two functions for handling primes.
+'primes' module contains two functions for handling primes.
 
 These are not too efficient; will improve as problems become more computationally intense.
 ```
-const { isPrime, genPrimeArr } = require('/path/to/modules/isPrime')
+const { isPrime, genPrimeArr } = require('/path/to/modules/primes')
 
 isPrime(num) // bool
 genPrimeArr(numPrimes) // array of primes of length numPrimes - 1
