@@ -1,4 +1,4 @@
-const { runtime } = require('../runtime')
+const { runtime } = require('../modules/runtime')
 
 // recursive solution using digit arrs (nums too big for JS)
 const fib = (last = [1], secondLast = [1], count = 2) => {

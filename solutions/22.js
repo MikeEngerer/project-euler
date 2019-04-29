@@ -1,5 +1,5 @@
-const { runtime } = require('../runtime')
-const { genAlphaObj } = require('../alphabet')
+const { runtime } = require('../modules/runtime')
+const { genAlphaObj } = require('../modules/alphabet')
 const path = require('path')
 const fs = require('fs')
 // import and format data into arr, then sort alphabetically

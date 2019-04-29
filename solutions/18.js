@@ -1,4 +1,4 @@
-const { runtime } = require('../runtime')
+const { runtime } = require('../modules/runtime')
 
 let data = `                          75
                                      95 64

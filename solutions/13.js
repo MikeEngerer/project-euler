@@ -1,5 +1,5 @@
 const { data } = require('../project_euler/13')
-const { runtime } = require('../runtime')
+const { runtime } = require('../modules/runtime')
  
 // format nums into arr
 const dataArr = data.split('\n').map(e => e.trim())

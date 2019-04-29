@@ -1,4 +1,4 @@
-const { runtime } = require('../runtime')
+const { runtime } = require('../modules/runtime')
 const path = require('path')
 const fs = require('fs')
 

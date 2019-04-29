@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { runtime } = require('../runtime')
+const { runtime } = require('../modules/runtime')
 // import data from poker.txt
 const rawData = fs.readFileSync(path.join(__dirname, '../project_euler/poker.txt'), 'utf8')
 // split and format data into turns: [[turn1], [turn2], ...]

@@ -1,4 +1,4 @@
-const { runtime } = require('../runtime.js')
+const { runtime } = require('../modules/runtime')
 
 const findTrip = () => {
   let i = 1;

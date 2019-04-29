@@ -1,4 +1,4 @@
-let { runtime } = require('../runtime.js')
+let { runtime } = require('../modules/runtime')
 
 let multiples = (input) => input.reduce((a, e) => check(e) ? a + e : a)
 

@@ -1,5 +1,5 @@
-const { runtime } = require('../runtime.js')
-const { isPrime } = require('../isPrime.js')
+const { runtime } = require('../modules/runtime')
+const { isPrime } = require('../modules/primes')
 
 const findPrimeSum = () => {
   let sum = 2;

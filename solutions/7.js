@@ -1,5 +1,5 @@
-const { runtime } = require('../runtime.js')
-const { genPrimeArr } = require('../isPrime.js')
+const { runtime } = require('../modules/runtime')
+const { genPrimeArr } = require('../modules/primes')
 
 const findPrime = (num) => {
   let primeArr = [1, 2, 3, 5, 7, 11, 13]

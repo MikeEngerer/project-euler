@@ -1,5 +1,5 @@
-const { genPrimeArr, isPrime } = require('../primes')
-const { runtime } = require('../runtime')
+const { genPrimeArr, isPrime } = require('../modules/primes')
+const { runtime } = require('../modules/runtime')
 
 // badly needs refactoring
 

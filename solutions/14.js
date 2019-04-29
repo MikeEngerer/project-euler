@@ -1,4 +1,4 @@
-const { runtime } = require('../runtime')
+const { runtime } = require('../modules/runtime')
 
 const countTerms = (num) => {
   let count = 0

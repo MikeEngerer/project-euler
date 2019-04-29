@@ -1,4 +1,4 @@
-const {runtime} = require('../runtime.js')
+const { runtime } = require('../modules/runtime')
 
 const diff = (max) => {
   let sum = 0

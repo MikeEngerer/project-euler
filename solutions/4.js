@@ -1,4 +1,4 @@
-const { runtime } = require('../runtime.js')
+const { runtime } = require('../modules/runtime')
 
 const isPalindrome = (num) => {
   let strNum = num.toString()

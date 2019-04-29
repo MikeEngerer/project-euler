@@ -1,4 +1,4 @@
-let {runtime} = require('../runtime.js')
+let {runtime} = require('../modules/runtime')
 
 const findSmallestMultiple = (max) => {
   let found = false

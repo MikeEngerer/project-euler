@@ -1,5 +1,5 @@
-const { runtime } = require('../runtime.js')
-const { findFactorCount } = require('../factors.js')
+const { runtime } = require('../modules/runtime')
+const { findFactorCount } = require('../modules/factors')
 
 const findTriangleNumFactors = (numFactors) => {
   let found = false
