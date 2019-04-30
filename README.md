@@ -49,21 +49,22 @@ isPrime(10) // false
 isPrime(11) // true
 genPrimeArr(5) // [2, 3, 5, 7, 11]
 ```
-'factors' module contains two functions for finding factors.
+'factors' module contains functions for handling factors.
 ```
-const { findFactors, findFactorCount } = require('/path/to/modules/factors')
+const { findFactors, findFactorSum, findFactorCount } = require('/path/to/modules/factors')
 
 findFactors(10) // [1, 2, 5, 10] *unsorted*
+findFactorSum(10) // 18
 findFactorCount(10) // 4
 ```
-'grid' module contains functions for creating grids (2d arr)
+'grid' module contains functions for creating grids (2d arrs).
 ```
 const { genGrid } = require('/path/to/modules/grid')
 
 genGrid(3, 4, 0) // [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]] *(rows, cols, val)*
 ```
 
-'alphabet' module contains functions for generating arrays/objects of characters
+'alphabet' module contains functions for generating arrays/objects of characters.
 ```
 const { genAlphaArr, genAlphaObj } = require('/path/to/modules/alphabet')
 
@@ -71,7 +72,7 @@ genAlphaArr('A', 'Z') // ['A', 'B', ... ,'Z']
 genAlphaObj('a', 'x') // { 'a': 1, 'b': 2, ..., 'z': 26}
 ```
 
-'reverse-md5' module utilizes the npm package (same name). 
+'reverse-md5' module utilizes [this npm package](https://www.npmjs.com/package/reverse-md5). 
 If you're stuck, use this to reverse the hash in project_euler.txt and obtain the answer.
 ```
 const { reversed } = require('/path/to/modules/reverse-md5')
