@@ -22,3 +22,4 @@ const numProductPalidrome = () => {
 }
 
 runtime(numProductPalidrome)
+// runtime: 0.396s

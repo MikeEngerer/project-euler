@@ -18,3 +18,4 @@ const findSmallestMultiple = (max) => {
 }
 
 runtime(findSmallestMultiple, 20)
+// runtime: 0.135s

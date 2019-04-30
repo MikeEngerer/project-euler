@@ -28,3 +28,4 @@ const findTriangleNumFactors = (numFactors) => {
 // }
 
 runtime(findTriangleNumFactors, 500)
+// runtime: 0.122s

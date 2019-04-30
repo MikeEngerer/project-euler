@@ -12,3 +12,4 @@ const getNameSum = (name) => name.split('').reduce((a, e) => a += alphaScores[e]
 const findTotal = (data) => data.reduce((a, e, i) => a += (getNameSum(e) * (i + 1)), 0)
 
 runtime(findTotal, data)
+// runtime: 0.004s

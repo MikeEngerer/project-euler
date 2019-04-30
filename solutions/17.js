@@ -65,3 +65,4 @@ const loopToThousand = () => {
 }
 
 runtime(loopToThousand)
+// runtime: 0.002s

@@ -37,3 +37,5 @@ const findNumRoutes = (size) => {
 }
 
 runtime(findNumRoutes, 20)
+// runtime: 0.002s
+

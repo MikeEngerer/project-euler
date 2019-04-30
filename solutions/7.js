@@ -31,14 +31,14 @@ const isPrime = (num) => {
   return true
 }
 
-// new sol using genPrimeArr 
-// runtime decreased from 1.5s to 0.16s
+// refactored solution using genPrimeArr 
 
 const find10001 = () => {
   let primeArr = genPrimeArr(10001)
   return primeArr[primeArr.length - 1]
 }
-console.log('first solution')
+
 runtime(findPrime, 10001)
-console.log('second solution')
+//runtime: 1.534s
 runtime(find10001)
+// runtime: 0.156s

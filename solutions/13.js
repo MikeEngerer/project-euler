@@ -17,3 +17,4 @@ Breakdown of shorthand used below:
 const firstTenDigits = (data) => data.reduce((a, e) => a + parseInt(e), 0).toString().split('.').join('').split('').slice(0, 10).join('')
 
 runtime(firstTenDigits, dataArr)
+// runtime: 0.001s

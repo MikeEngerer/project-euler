@@ -87,7 +87,6 @@ const hasFlush = (hand) => {
 // checks sorted hand for 5 nums in sequence, returns bool
 const hasStraight = (hand) => {
   const sortedHand = sortHandByNums(hand)
-  console.log(sortedHand)
   let straight = true
   for (let i = sortedHand.length - 1; i >= 0; i--) {
     if (i === 0) {
@@ -313,3 +312,4 @@ const loopData = (data) => {
 }
 
 runtime(loopData, data)
+// runtime: 0.019s

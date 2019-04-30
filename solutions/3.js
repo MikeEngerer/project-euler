@@ -11,3 +11,4 @@ const findPrime = (num) => {
 }
 
 runtime(findPrime, 600851475143)
+// runtime: 0.001s

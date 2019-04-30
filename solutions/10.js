@@ -14,3 +14,4 @@ const findPrimeSum = () => {
 }
 
 runtime(findPrimeSum)
+// runtime: 0.669s

@@ -43,3 +43,8 @@ const truncateFromLeft = (num) => {
 const loopData = (primes) => primes.reduce((a, e) => truncateFromLeft(e) && truncateFromRight(e) ? a + e : a, 0)
 
 runtime(loopData, primes)
+// runtime: 0.049s
+
+// above does not include prime arr generation
+runtime(genPrimeArr, 60000)
+// runtime: 6.185s

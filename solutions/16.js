@@ -28,3 +28,4 @@ const digitCount = () => {
 }
 
 runtime(digitCount)
+// runtime: 0.013s

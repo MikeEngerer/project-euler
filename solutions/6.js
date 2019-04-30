@@ -11,3 +11,4 @@ const diff = (max) => {
 }
 
 runtime(diff, 100)
+// runtime: 0.001s

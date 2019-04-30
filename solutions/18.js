@@ -36,6 +36,8 @@ const findMax = (data) => {
 }
 
 runtime(findMax, data)
+// runtime: 0.002s
+
 
 // initial approach below with rankings didnt pan out
 // // map rank of nums in each row (sorted index)

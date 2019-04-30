@@ -149,3 +149,4 @@ const findLargestProduct = () => {
 }
 
 runtime(findLargestProduct)
+// runtime: 0.001s

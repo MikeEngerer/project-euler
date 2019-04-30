@@ -29,3 +29,4 @@ const findLargestTermCount = (maxNum) => {
 }
 
 runtime(findLargestTermCount, 1000000)
+// runtime: 1.154s

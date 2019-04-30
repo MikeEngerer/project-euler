@@ -50,3 +50,4 @@ const findProduct = (input) => {
 }
 
 runtime(findProduct, data)
+// runtime: 0.002s

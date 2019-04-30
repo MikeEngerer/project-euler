@@ -5,7 +5,6 @@ const findTrip = () => {
   let j = 2;
   let sum = i + j + calcC(i, j)
   while (sum !== 1000) {
-    console.log(sum)
     if (sum > 1000) {
       i++
       j = i + 1
@@ -22,3 +21,4 @@ const calcC = (a, b) => {
 }
 
 runtime(findTrip)
+// runtime: 0.004s

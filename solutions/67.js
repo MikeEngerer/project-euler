@@ -24,3 +24,4 @@ const findMax = (data) => {
 }
 
 runtime(findMax, data)
+// runtime: 0.002s

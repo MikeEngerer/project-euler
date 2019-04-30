@@ -19,6 +19,7 @@ const fib = (last = [1], secondLast = [1], count = 2) => {
 }
 
 runtime(fib)
+// runtime: 0.059s
 
 
 //// previous attempt that didnt work out... arr of digits in reverse made the above solution much easier

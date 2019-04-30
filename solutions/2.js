@@ -17,3 +17,4 @@ const fibSum = () => {
 }
 
 runtime(fibSum)
+// runtime: 0.001s
