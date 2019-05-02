@@ -16,7 +16,7 @@ const findFactorCount = (num) => {
 // returns unsorted arr of factors of given num
 const findFactors = (num) => {
   let factors = []
-  let max = Math.ceil(Math.sqrt(num))
+  let max = Math.floor(Math.sqrt(num))
   for (let i = 1; i <= max; i++) {
     if (num % i === 0) {
       // push i and i's compliment (if not self) to factors arr
@@ -28,6 +28,8 @@ const findFactors = (num) => {
   }
   return factors
 }
+
+// console.log(findFactors(2))
 
 // returns sum of factors of given num
 const findFactorSum = (num) => findFactors(num).reduce((a, e) => a + e, 0)
