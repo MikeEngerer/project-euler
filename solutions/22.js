@@ -1,5 +1,4 @@
-const { runtime } = require('../modules/runtime')
-const { genAlphaObj } = require('../modules/alphabet')
+const { runtime, genAlphaObj } = require('project-euler-helpers')
 const path = require('path')
 const fs = require('fs')
 // import and format data into arr, then sort alphabetically

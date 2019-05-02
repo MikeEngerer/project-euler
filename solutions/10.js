@@ -1,5 +1,4 @@
-const { runtime } = require('../modules/runtime')
-const { isPrime } = require('../modules/primes')
+const { runtime, isPrime } = require('project-euler-helpers')
 
 const findPrimeSum = () => {
   let sum = 2;

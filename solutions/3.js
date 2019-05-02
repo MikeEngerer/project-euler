@@ -1,4 +1,4 @@
-const { runtime } = require('../modules/runtime.js')
+const { runtime } = require('project-euler-helpers')
 
 const findPrime = (num) => {
   for (let i = 2; i < num; i++) {

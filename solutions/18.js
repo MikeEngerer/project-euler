@@ -1,4 +1,4 @@
-const { runtime } = require('../modules/runtime')
+const { runtime } = require('project-euler-helpers')
 
 let data = `                          75
                                      95 64

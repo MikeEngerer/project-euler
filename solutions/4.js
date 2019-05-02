@@ -1,4 +1,4 @@
-const { runtime } = require('../modules/runtime')
+const { runtime } = require('project-euler-helpers')
 
 const isPalindrome = (num) => {
   let strNum = num.toString()

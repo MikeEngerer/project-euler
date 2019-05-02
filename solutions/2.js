@@ -1,4 +1,4 @@
-const { runtime } = require('../modules/runtime')
+const { runtime } = require('project-euler-helpers')
 
 const fibSum = () => {
   let seq = [1, 1]

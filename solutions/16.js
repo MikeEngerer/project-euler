@@ -1,4 +1,4 @@
-const { runtime } = require('../modules/runtime')
+const { runtime } = require('project-euler-helpers')
 
 /*
 JS uses sci notation for big ints, which does not give enough precision (not all digits given)

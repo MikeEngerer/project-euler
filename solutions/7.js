@@ -1,5 +1,4 @@
-const { runtime } = require('../modules/runtime')
-const { genPrimeArr } = require('../modules/primes')
+const { runtime, genPrimeArr } = require('project-euler-helpers')
 
 const findPrime = (num) => {
   let primeArr = [1, 2, 3, 5, 7, 11, 13]

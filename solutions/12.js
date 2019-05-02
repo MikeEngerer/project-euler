@@ -1,5 +1,4 @@
-const { runtime } = require('../modules/runtime')
-const { findFactorCount } = require('../modules/factors')
+const { runtime, findFactorCount } = require('project-euler-helpers')
 
 const findTriangleNumFactors = (numFactors) => {
   let found = false

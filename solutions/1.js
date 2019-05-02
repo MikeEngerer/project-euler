@@ -1,4 +1,4 @@
-let { runtime } = require('../modules/runtime')
+let { runtime } = require('project-euler-helpers')
 
 let multiples = (input) => input.reduce((a, e) => check(e) ? a + e : a)
 

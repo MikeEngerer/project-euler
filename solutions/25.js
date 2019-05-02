@@ -1,4 +1,4 @@
-const { runtime } = require('../modules/runtime')
+const { runtime } = require('project-euler-helpers')
 
 // recursive solution using digit arrs (nums too big for JS)
 const fib = (last = [1], secondLast = [1], count = 2) => {

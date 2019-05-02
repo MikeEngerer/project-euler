@@ -1,9 +1,8 @@
-const { genPrimeArr, isPrime } = require('../modules/primes')
-const { runtime } = require('../modules/runtime')
+const { genPrimeArr, isPrime, runtime } = require('project-euler-helpers')
 
 // badly needs refactoring
 
-// 60000 primes - this is the slow part (6s)
+// 60000 primes - this is the slow part (~6s)
 let primes = genPrimeArr(60000).slice(4)
 
 // to weed out a bunch (first or last digit cannot be 1)

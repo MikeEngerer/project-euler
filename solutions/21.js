@@ -1,5 +1,4 @@
-const { runtime } = require('../modules/runtime')
-const { findFactors } = require('../modules/factors')
+const { runtime, findFactors } = require('project-euler-helpers')
 
 // construct obj of factor sums for all numbers range(1, max) inclusive
 const storeFactorSums = (max) => {

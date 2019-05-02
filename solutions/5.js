@@ -1,4 +1,4 @@
-let {runtime} = require('../modules/runtime')
+let {runtime} = require('project-euler-helpers')
 
 const findSmallestMultiple = (max) => {
   let found = false

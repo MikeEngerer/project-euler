@@ -1,5 +1,4 @@
-const { runtime } = require('../modules/runtime')
-const { findFactorSum } = require('../modules/factors')
+const { runtime, findFactorSum } = require('project-euler-helpers')
 
 const findAbundantNums = (max) => {
   let factorSums = [], currentSum
