@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "project-euler-helpers": "^1.0.0",
     "reverse-md5": "0.0.4"
   }
 }
