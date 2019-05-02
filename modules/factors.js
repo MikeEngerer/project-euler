@@ -3,7 +3,7 @@ const findFactorCount = (num) => {
   // all nums have factors 1 and itself
   let count = 2
   // max factor possible (excluding compliments)
-  let max = Math.ceil(Math.sqrt(num))
+  let max = Math.floor(Math.sqrt(num))
   for (let i = 2; i <= max + 1; i++) {
     if (num % i === 0) {
       // divisible by i and i's compliment
