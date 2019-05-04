@@ -5,9 +5,11 @@ const findCycle = (num) => {
   if (num % 2 === 0 || num % 5 === 0) return []
   let remainder = 1 % num, digits = [], current
   while (true) {
+    // each digit is the floored quotient of the previous division's remainder * 10 / initial num
     current = Math.floor(remainder * 10 / num)
     digits.push(current)
     remainder = (remainder * 10) % num
+    // if 1, cycle has finished (always starts at 1)
     if (remainder === 1) {
       break
     }
