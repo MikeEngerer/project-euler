@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "project-euler-helpers": "^1.0.0"
+    "project-euler-helpers": "^1.0.4"
   }
 }
