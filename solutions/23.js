@@ -35,7 +35,7 @@ const findNonAbunSum = (max) => {
   return sum
 }
 
-// runtime(findNonAbunSum, 28123)
+runtime(findNonAbunSum, 28123)
 // runtime: 34.967s
 // my least efficient solution to a problem yet, will come back to this one
 
