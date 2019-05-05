@@ -53,9 +53,9 @@ const reduceFraction = (nums) => {
 
 // reduced product of reduced fractions returned from findFractions, returns denom value
 const fractionProduct = () => {
-  let reduced = findFractions(100).map(e => reduceFraction(e))
-  let numerator = reduced.reduce((a, e) => a *= e[0], 1)
-  let denominator = reduced.reduce((a, e) => a *= e[1], 1)
+  let reduced = findFractions(100).map(e => reduceFraction(e)),
+      numerator = reduced.reduce((a, e) => a *= e[0], 1),
+      denominator = reduced.reduce((a, e) => a *= e[1], 1)
   return reduceFraction([numerator, denominator])[1]
 }
 runtime(fractionProduct)
