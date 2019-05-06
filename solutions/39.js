@@ -17,7 +17,7 @@ const findTrianglePerims = (a, b, max) => {
 }
 
 // check all sidelengths a, b and store perimeter count, highest count perim is returned
-const loopSidesAB = (max) => {
+const highestPerimCount = (max) => {
   let perimCounts = {}, highest = 0, perim
   for (let i = 1; i <= max; i++) {
     for (let j = i; j <= max; j++) {
@@ -38,7 +38,7 @@ const loopSidesAB = (max) => {
   return perim
 }
 
-runtime(loopSidesAB, 1000)
+runtime(highestPerimCount, 1000)
 // runtime: 4.602s
 
 
