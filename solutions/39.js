@@ -18,20 +18,20 @@ const findTrianglePerims = (a, b, max) => {
 
 // check all sidelengths a, b and store perimeter count, highest count perim is returned
 const loopSidesAB = (max) => {
-  let arr, obj = {}, highest = 0, perim
+  let perimCounts = {}, highest = 0, perim
   for (let i = 1; i <= max; i++) {
     for (let j = i; j <= max; j++) {
       findTrianglePerims(i, j, max).forEach(e => {
         if (e <= max) {
-          obj[e] ? obj[e]++ : obj[e] = 1
+          perimCounts[e] ? perimCounts[e]++ : perimCounts[e] = 1
         }
       })
     }
   }
   // all counted, find highest
-  for (let i in obj) {
-    if (obj[i] > highest) {
-      highest = obj[i]
+  for (let i in perimCounts) {
+    if (perimCounts[i] > highest) {
+      highest = perimCounts[i]
       perim = i
     }
   }
