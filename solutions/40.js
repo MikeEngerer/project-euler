@@ -1,5 +1,6 @@
 const { runtime } = require('project-euler-helpers')
 
+// arr from range(1, max) with each el containing 1 digit
 const genDigitArr = (max) => {
   let arr = [], current = 1, str
   while (arr.length <= max) {
