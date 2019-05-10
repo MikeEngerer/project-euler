@@ -1,21 +1,21 @@
-const { runtime } = require('project-euler-helpers')
-// checks sorted str of nums === 123456789
-const isPandigital = (multiplicand, multiplier, product) => {
-  let str = multiplicand.toString() + multiplier.toString() + product.toString(), nums = '123456789'
-  str = str.split('').sort().join('')
-  return str === nums
-}
+const { runtime, isPandigital } = require('project-euler-helpers')
 
 // upper/lower bounds determined experimentally
 // returns sum of unique products
 const findPanNums = () => {
-  let nums = []
+  let nums = [], combined
   for (let i = 1; i < 50; i++) {
     // cannot contain '0'
-    if (i % 10 === 0) continue
+    if (i % 10 === 0) {
+      continue
+    }
     for (let j = 100; j < 2000; j++) {
-      if (i % 10 === 0) continue
-      if (isPandigital(i, j, i * j)) {
+      if (i % 10 === 0) {
+        continue
+      }
+      // combine nums
+      combined = i.toString() + j.toString() + (i * j).toString()
+      if (isPandigital(combined)) {
         // check unique
         if (!nums.includes(i * j)) {
           nums.push(i * j)
@@ -28,4 +28,4 @@ const findPanNums = () => {
 }
 
 runtime(findPanNums)
-// runtime: 0.108s
+// runtime: 0.157s
