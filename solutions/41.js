@@ -14,6 +14,8 @@ const findPandigitalPrimes = (max) => {
   return highest
 }
 
-// upper bound is intuitively 1000000, sped up slightly by lowering to 8000000 experimentally
+// upper bound is intuitively 10000000, sped up slightly by lowering to 8000000 experimentally
 runtime(findPandigitalPrimes, 8000000)
 // runtime: 3.157s
+
+// refactor: find pandigital permutations under 10000000, filter with isPrime, return highest
