@@ -10,10 +10,6 @@ Array.prototype.last = function () {
 // import and format data into arr
 let data = fs.readFileSync(path.join(__dirname, '../project_euler/words.txt'), 'utf-8').split(',').map(e => e.split('"')[1])
 
-// upper bound is Z value (26) * longest word's num chars (representation, 14)
-// obviously there is no word "ZZZZZZZZZZZZZZ" but the solution runs pretty fast anyway
-let bound = 26 * data.slice().sort((a, b) => a.length > b.length).last().length
-
 // check if triangle num exists === given num
 const isTriangleNum = (num, bound) => {
   for (let i = 1; i < bound; i++) {
@@ -25,9 +21,10 @@ const isTriangleNum = (num, bound) => {
 }
 
 const findTriangleNums = (data) => {
-  // map word arr (data) => char sum
+  // map word arr (data) => char sum, calc bound
   let alphaScores = genAlphaObj('A', 'Z'), 
-      charSums = data.map(e => e.split('').map(el => alphaScores[el]).reduce((a, ele) => a + ele, 0))
+      charSums = data.map(e => e.split('').map(el => alphaScores[el]).reduce((a, ele) => a + ele, 0)),
+      bound = charSums.slice().sort((a, b) => a - b).last()
   // return length of arr (count) of passing words
   return charSums.filter(e => isTriangleNum(e, bound)).length
 }
