@@ -27,7 +27,7 @@ const checkSubset = (arr) => {
 const pandigitalPermutations = (digits) => {
   let count = 1, currentHigh, currentLow, reversed, temp, copy, sum = 0, 
       max = (digits.length - 1) * factorial(digits.length - 1)
-  // follows documented algorithm for finding all permutations
+  // follows documented algorithm for finding all permutations:
   // https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order
   while (count <= max) {
     for (let i = 0; i < digits.length - 1; i++) {
