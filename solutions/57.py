@@ -18,5 +18,5 @@ start = time.time()
 print(root_two_approx(1000))
 end = time.time()
 print(end - start)
-# runtime: 0.008s
+# runtime: 0.001s
 
