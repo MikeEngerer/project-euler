@@ -1,3 +1,4 @@
+# this same solution in JS produces numer/denom = infinity long before 1000 iterations...
 import time
 
 # next numer = prev numer + prev denom * 2, next denom = prev numer + prev denom
