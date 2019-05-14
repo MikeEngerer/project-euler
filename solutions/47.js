@@ -1,9 +1,4 @@
-const { runtime, isPrime } = require('project-euler-helpers')
-
-// filters any arr to contain only unique values
-Array.prototype.unique = function () {
-  return this.sort((a, b) => a - b).filter((e, i) => i === this.length - 1 ? true : this[i + 1] !== e) 
-}
+const { runtime, isPrime, Array } = require('project-euler-helpers')
 
 // return first of four consecutive numbers, each having four distinct prime factors
 const fourConsecutive = () => {
