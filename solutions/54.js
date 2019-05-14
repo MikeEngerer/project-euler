@@ -1,15 +1,10 @@
 const fs = require('fs')
 const path = require('path')
-const { runtime } = require('project-euler-helpers')
+const { runtime, Array } = require('project-euler-helpers')
 // import data from poker.txt
 const rawData = fs.readFileSync(path.join(__dirname, '../project_euler/poker.txt'), 'utf8')
 // split and format data into turns: [[turn1], [turn2], ...]
 const data = rawData.split('\r\n').map(e => e.split(' '))
-
-// tired of getting the last item in an arr manually
-Array.prototype.last = function() {
-  return this[this.length - 1]
-}
 
 // split players hands from [p1, p2] to [[p1], [p2]]
 const splitHand = (fullHand) => {
