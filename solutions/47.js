@@ -27,7 +27,7 @@ const fourConsecutive = () => {
 // return arr of distinct prime factors
 const findDistinctPrimeFactors = (num) => {
   if (isPrime(num)) return [num]
-  for (let i = num - 1; i >= 1; i--) {
+  for (let i = Math.floor(num / 2); i >= 1; i--) {
     // find highest factor other than self
     if (num % i === 0) {
       // factor the found factor and its compliment
@@ -38,4 +38,4 @@ const findDistinctPrimeFactors = (num) => {
 
 // needs refactoring... too slow
 runtime(fourConsecutive)
-// runtime: 29.559s
+// runtime: 10.702s
