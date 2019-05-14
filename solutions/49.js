@@ -23,9 +23,9 @@ const findSet = () => {
     if (current.length >= 3) {
       // add as arr to passing sets
       primeSets.push(current)
-      // remove from original arr for speed
-      primes = primes.filter(e => !current.includes(e))
     }
+    // remove from original arr for speed
+    primes = primes.filter(e => !current.includes(e))
   }
   let difference, difference2, found = []
   // find sets of 3 primes with equal difference, store in found 
@@ -49,4 +49,4 @@ const findSet = () => {
 }
 
 runtime(findSet)
-// runtime: 0.229s
+// runtime: 0.176s
