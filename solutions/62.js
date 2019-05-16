@@ -1,4 +1,4 @@
-const { runtime, isPermutation } = require('project-euler-helpers')
+const { runtime } = require('project-euler-helpers')
 
 // returns smallest permutation of a num
 const minPermutation = (num) => {
