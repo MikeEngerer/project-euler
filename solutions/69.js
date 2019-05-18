@@ -37,6 +37,30 @@ const minimizeTotientUnderMax = (max) => {
   return highestNum
 }
 
+/* This refactor reduced the runtime from 525s to 0.001s, and was inspired by this article:
+* https://www.mathblog.dk/project-euler-69-find-the-value-of-n-%E2%89%A4-1000000-for-which-n%CF%86n-is-a-maximum/
+* 
+* Since the totient equation (t(n) = n(1 - 1 / p1)...(1 - 1 / pk)) relies on distinct prime factors, we
+* simply need to multiply the series of primes starting from 2 until the product > max, and return that product
+*/
+
+const minTotient = (max) => {
+  let i = 2, total = 1  
+  while (true) {
+    if (total * i > max) {
+      return total
+    }
+    if (isPrime(i)) {
+      total *= i
+    }
+    i++
+  }
+}
+
+// new solution
+runtime(minTotient, 1000000)
+// runtime: 0.001s
+
 // WAY too slow, need to refactor
-runtime(minimizeTotientUnderMax, 1000001)
+// runtime(minimizeTotientUnderMax, 1000001)
 // runtime: 525s
