@@ -2,6 +2,7 @@ const { runtime } = require('project-euler-helpers')
 const fs = require('fs')
 const path = require('path')
 
+// import and format data into 2d arr
 let data = fs.readFileSync(path.join(__dirname, '../project_euler/matrix.txt'), 'utf-8')
            .split('\r\n').map(e => e.split(',').map(el => Number(el)))
 data.pop()
