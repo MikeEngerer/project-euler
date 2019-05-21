@@ -72,8 +72,8 @@ const constructBeforeAfter = (data) => {
 
 // sort vals in obj by length of subarray [before] (could also use [after]), return sequence
 const decode = () => {
-  let keys = constructBeforeAfter(data)
-  return Object.keys(keys).sort((a, b) => keys[a].before.length > keys[b].before.length).join('')
+  let obj = constructBeforeAfter(data)
+  return Object.keys(obj).sort((a, b) => obj[a].before.length > obj[b].before.length).join('')
 }
 
 runtime(decode)

@@ -6,7 +6,7 @@ const path = require('path')
 * but fixed (once you start/end, no point in moving anymore within first/last cols)
 * Moving right, down, up allows rows ^ (cols - 2) possible paths, so 80 ^ 78 = 2.76 * e ^ 148 = O(n ^ n)...
 * Instead of checking all paths, we can start at second last col and find each cell's best relative path sum
-* and set its value to that sum
+* and set its value to that sum 
 * This means we visit each cell once (80 rows * 78 cols) and check each of its relative paths (80)
 * This reduces our total operations to rows * rows * (cols - 2) = 80 * 80 * 78 = 499200 = O(n ^ 3)
 */
