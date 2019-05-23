@@ -25,4 +25,4 @@ const totalEndingAt89 = (max) => {
 runtime(totalEndingAt89, 10000000)
 // runtime: 22.464s
 
-// refactor: store patterns leading to 89, terminate loop when any num leading to 89 is found 
+// refactor: store patterns leading to 89/1, terminate loop when any num leading to 89/1 is found 
