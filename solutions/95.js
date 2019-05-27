@@ -2,7 +2,7 @@ const { runtime, findFactors } = require('project-euler-helpers')
 
 const factorSum = (num) => findFactors(num).reduce((a, e) => a + e, 0) - num
 
-// returns lowest val in set of highest count amicable chain
+// returns lowest val in set of highest count amicable chain under max
 const longestAmicableChain = (max) => {
   let current, currentSet, currentCount, i = 10, highestCount = 0, highestVal, amicable
   while (i < max) { // initial num loop
